@@ -179,8 +179,8 @@ void eve2_wr16(uint32_t addr, uint16_t dataBytes)
   addrToPass[1] = addr >> 8;
   addrToPass[2] = addr;
   
-  dataToPass[0] = dataBytes;
-  dataToPass[1] = dataBytes >> 8;
+  dataToPass[0] = dataBytes >> 8;
+  dataToPass[1] = dataBytes;
 
   eve2_write(addrToPass, dataToPass, 3, 2);
 }
@@ -193,10 +193,10 @@ void eve2_wr32(uint32_t addr, uint32_t dataBytes)
   addrToPass[1] = addr >> 8;
   addrToPass[2] = addr;
   
-  dataToPass[0] = dataBytes;
-  dataToPass[1] = dataBytes >> 8;
-  dataToPass[2] = dataBytes >> 16;
-  dataToPass[3] = dataBytes >> 24;
+  dataToPass[0] = dataBytes >> 24;
+  dataToPass[1] = dataBytes >> 16;
+  dataToPass[2] = dataBytes >> 8;
+  dataToPass[3] = dataBytes;
 
   eve2_write(addrToPass, dataToPass, 3, 4);
 }
