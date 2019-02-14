@@ -228,7 +228,7 @@ uint16_t eve2_rd16(uint32_t addr)
 
   static uint8_t* dataReceived = eve2_read(addrToPass, 3, 2); //Address, Address length, Data length
 
-  return (uint16_t)dataReceived[0] | (uint16_t)dataReceived[1];
+  return (uint16_t)dataReceived[0] << 8 | (uint16_t)dataReceived[1];
 }
 
 uint32_t eve2_rd32(uint32_t addr)
@@ -241,7 +241,7 @@ uint32_t eve2_rd32(uint32_t addr)
 
   static uint8_t* dataReceived = eve2_read(addrToPass, 3, 3); //Address, Address length, Data length
 
-  return (uint32_t)dataReceived[0] | (uint32_t)dataReceived[1] | (uint32_t)dataReceived[2];
+  return (uint32_t)dataReceived[0] << 16 | (uint32_t)dataReceived[1] << 8 | (uint32_t)dataReceived[2];
 }
 
 //-----------------------------------------------------//
